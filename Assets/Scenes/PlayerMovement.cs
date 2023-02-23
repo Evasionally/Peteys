@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     //Assingables
     public Transform playerCam;
     public Transform orientation;
-    
+
     //Other
     private Rigidbody rb;
 
@@ -54,14 +54,9 @@ public class PlayerMovement : MonoBehaviour {
         Cursor.visible = false;
     }
 
-    
-    private void FixedUpdate() {
-        Movement();
-        Look();
-    }
-
     private void Update() {
         MyInput();
+        Movement();
         Look();
     }
 
