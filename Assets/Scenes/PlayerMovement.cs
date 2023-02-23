@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     /// <summary>
-    /// Find user input. Should put this in its own class but im lazy
+    /// Find user input. 
     /// </summary>
     private void MyInput() {
         x = Input.GetAxisRaw("Horizontal");

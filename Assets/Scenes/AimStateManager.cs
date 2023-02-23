@@ -14,7 +14,7 @@ public class AimStateManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         xAxis.Update(Time.deltaTime);
         yAxis.Update(Time.deltaTime);
