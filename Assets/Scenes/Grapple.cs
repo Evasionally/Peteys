@@ -8,6 +8,7 @@ public class Grapple : MonoBehaviour
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, camera, player;
+    public float spring, damper, massScale;
     private float maxDistance = 100f;
     private SpringJoint joint;
 
@@ -54,9 +55,9 @@ public class Grapple : MonoBehaviour
             joint.minDistance = distanceFromPoint * 0.2f;
             
             //Spring sensitvity settings (can be modified)
-            joint.spring = 4.5f;
-            joint.damper = 7f;
-            joint.massScale = 4.5f;
+            joint.spring = spring;
+            joint.damper = damper;
+            joint.massScale = massScale;
 
             lr.positionCount = 2;
 
