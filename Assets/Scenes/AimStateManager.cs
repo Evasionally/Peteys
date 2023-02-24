@@ -9,9 +9,22 @@ public class AimStateManager : MonoBehaviour
 {
     public CinemachineVirtualCamera aimCamera;
     public CinemachineFreeLook thirdPersonCam;
+    public Camera mainCam;
+    
+    public LayerMask aimColliderMask = new LayerMask();
+
+    public Transform aimPosition;
+
     private void Update()
     {
-        aimCamera.gameObject.SetActive(Input.GetMouseButton(1));
-        thirdPersonCam.gameObject.SetActive(!Input.GetMouseButton(1));
+        Boolean rightClickHeld = Input.GetMouseButton(1);
+        
+        aimCamera.gameObject.SetActive(rightClickHeld);
+        thirdPersonCam.gameObject.SetActive(!rightClickHeld);
+
+        if (rightClickHeld)
+        {
+            
+        }
     }
 }
