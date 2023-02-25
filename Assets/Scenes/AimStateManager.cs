@@ -10,12 +10,10 @@ public class AimStateManager : MonoBehaviour
     public CinemachineVirtualCamera aimCamera;
     public CinemachineFreeLook thirdPersonCam;
     public Camera mainCam;
-    
-    public LayerMask aimColliderMask = new LayerMask();
 
-    public Transform aimPosition;
+    public float rotationSpeed = .9f;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Boolean rightClickHeld = Input.GetMouseButton(1);
         
@@ -24,7 +22,9 @@ public class AimStateManager : MonoBehaviour
 
         if (rightClickHeld)
         {
-            
+            float targetAngle = mainCam.transform.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0, targetAngle, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
     }
 }
