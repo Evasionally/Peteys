@@ -1815,6 +1815,7 @@ GameObject:
   - component: {fileID: 1784520033}
   - component: {fileID: 1784520034}
   - component: {fileID: 1784520035}
+  - component: {fileID: 1784520036}
   m_Layer: 0
   m_Name: Petey
   m_TagString: Untagged
@@ -2080,6 +2081,32 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1784520036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784520026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582fde3ce2a777c4cb923c292cbaad8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1715582979747976271, guid: 6ecdcb900391852459518f16c19fa0a8, type: 3}
+  shootForce: 30
+  upwardForce: 0
+  timeBetweenShooting: 0.1
+  spread: 3
+  reloadTime: 1.5
+  timeBetweenShots: 0.5
+  magazineSize: 10
+  bulletsPerTap: 1
+  allowButtonHold: 1
+  fpsCam: {fileID: 619090656}
+  attackPoint: {fileID: 1784520027}
+  ammunitionDisplay: {fileID: 0}
+  allowInvoke: 1
 --- !u!1 &1942420988
 GameObject:
   m_ObjectHideFlags: 0
