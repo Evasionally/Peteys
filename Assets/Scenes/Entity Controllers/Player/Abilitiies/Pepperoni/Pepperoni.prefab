@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: -5274984114163740259}
   - component: {fileID: -6220793844769662757}
   - component: {fileID: 4242844006921833222}
-  m_Layer: 5
+  - component: {fileID: 4571215578904340425}
+  - component: {fileID: 9133292570474559375}
+  - component: {fileID: 1340487601340823017}
+  m_Layer: 3
   m_Name: Pepperoni
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,3 +103,44 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!64 &4571215578904340425
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715582979747976271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &9133292570474559375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715582979747976271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba83b05f7c9094191bf4ddf61e65c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  lifetime: 3
+--- !u!114 &1340487601340823017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715582979747976271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffa93295f9cb5a4cb8e07d85541c7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5

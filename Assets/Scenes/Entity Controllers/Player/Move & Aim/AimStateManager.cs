@@ -13,14 +13,16 @@ public class AimStateManager : MonoBehaviour
 
     public float rotationSpeed = .9f;
 
+    [NonSerialized] public Boolean isAiming;
+
     private void FixedUpdate()
     {
-        Boolean rightClickHeld = Input.GetMouseButton(1);
+        isAiming = Input.GetMouseButton(1);
         
-        aimCamera.gameObject.SetActive(rightClickHeld);
-        thirdPersonCam.gameObject.SetActive(!rightClickHeld);
+        aimCamera.gameObject.SetActive(isAiming);
+        thirdPersonCam.gameObject.SetActive(!isAiming);
 
-        if (rightClickHeld)
+        if (isAiming)
         {
             float targetAngle = mainCam.transform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, targetAngle, 0);

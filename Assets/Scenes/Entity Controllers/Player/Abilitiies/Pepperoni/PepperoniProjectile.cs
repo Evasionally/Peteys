@@ -2,7 +2,7 @@
 using UnityEngine;
 using TMPro;
 
-public class ProjectileGunTutorial : MonoBehaviour
+public class PepperoniProjectile : MonoBehaviour
 {
     //bullet 
     public GameObject bullet;
@@ -30,17 +30,23 @@ public class ProjectileGunTutorial : MonoBehaviour
     //bug fixing :D
     public bool allowInvoke = true;
 
+    private AimStateManager aimStateManager;
+
     private void Awake()
     {
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        aimStateManager = gameObject.GetComponent<AimStateManager>();
     }
 
     private void Update()
     {
-        MyInput();
-
+        if (aimStateManager.isAiming)
+        {
+            MyInput();
+        }
+        
         //Set ammo display, if it exists :D
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
