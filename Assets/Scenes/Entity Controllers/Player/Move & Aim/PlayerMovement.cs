@@ -5,8 +5,7 @@ public class PlayerMovement : MonoBehaviour {
 
     //Assingables
     public Transform playerCam;
-    public Transform orientation;
-    
+
     //Other
     private Rigidbody rb;
 
@@ -14,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     private float xRotation;
     private float sensitivity = 50f;
     private float sensMultiplier = 1f;
+    public float rotationSpeed = 5f;
     
     //Movement
     public float moveSpeed = 4500;
@@ -54,15 +54,10 @@ public class PlayerMovement : MonoBehaviour {
         Cursor.visible = false;
     }
 
-    
     private void FixedUpdate() {
-        Movement();
-        Look();
-    }
-
-    private void Update() {
         MyInput();
-        Look();
+        Movement();
+        if (!Input.GetMouseButton(1)) Look();
     }
 
     /// <summary>
@@ -86,7 +81,7 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         if (rb.velocity.magnitude > 0.5f) {
             if (grounded) {
-                rb.AddForce(orientation.transform.forward * slideForce);
+                rb.AddForce(playerCam.transform.forward * slideForce);
             }
         }
     }
@@ -138,8 +133,8 @@ public class PlayerMovement : MonoBehaviour {
         if (grounded && crouching) multiplierV = 0f;
 
         //Apply forces to move player
-        rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
-        rb.AddForce(orientation.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
+        rb.AddForce(playerCam.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
+        rb.AddForce(playerCam.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
     }
 
     private void Jump() {
@@ -166,21 +161,19 @@ public class PlayerMovement : MonoBehaviour {
     }
     
     private float desiredX;
-    private void Look() {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+    private void Look()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        //Find current look rotation
-        Vector3 rot = playerCam.transform.localRotation.eulerAngles;
-        desiredX = rot.y + mouseX;
-        
-        //Rotate, and also make sure we dont over- or under-rotate.
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        //Perform the rotations
-        playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
-        orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = (float)Math.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + playerCam.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        }
     }
 
     private void CounterMovement(float x, float y, Vector2 mag) {
@@ -194,10 +187,10 @@ public class PlayerMovement : MonoBehaviour {
 
         //Counter movement
         if (Math.Abs(mag.x) > threshold && Math.Abs(x) < 0.05f || (mag.x < -threshold && x > 0) || (mag.x > threshold && x < 0)) {
-            rb.AddForce(moveSpeed * orientation.transform.right * Time.deltaTime * -mag.x * counterMovement);
+            rb.AddForce(moveSpeed * playerCam.transform.right * Time.deltaTime * -mag.x * counterMovement);
         }
         if (Math.Abs(mag.y) > threshold && Math.Abs(y) < 0.05f || (mag.y < -threshold && y > 0) || (mag.y > threshold && y < 0)) {
-            rb.AddForce(moveSpeed * orientation.transform.forward * Time.deltaTime * -mag.y * counterMovement);
+            rb.AddForce(moveSpeed * playerCam.transform.forward * Time.deltaTime * -mag.y * counterMovement);
         }
         
         //Limit diagonal running. This will also cause a full stop if sliding fast and un-crouching, so not optimal.
@@ -214,7 +207,7 @@ public class PlayerMovement : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public Vector2 FindVelRelativeToLook() {
-        float lookAngle = orientation.transform.eulerAngles.y;
+        float lookAngle = playerCam.transform.eulerAngles.y;
         float moveAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
 
         float u = Mathf.DeltaAngle(lookAngle, moveAngle);
