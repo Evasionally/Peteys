@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private MazeWaypointPath _waypointPath;
 
     
-    private float _speed = 2;
+    private float _speed = 4;
 
     private int _targetWaypointIndex;
 
@@ -37,11 +37,11 @@ public class Movement : MonoBehaviour
         if (elapedPercentage >= 1)
         {
             if(_previousWaypoint == _waypointPath.GetWaypoint(0) && _targetWaypoint == _waypointPath.GetWaypoint(0))
-                _waitDuration = 50f;
+                _waitDuration = 30f;
             else if(_previousWaypoint == _waypointPath.GetWaypoint(2) || _previousWaypoint == _waypointPath.GetWaypoint(0))
                 _waitDuration = 5f;
             else if(_previousWaypoint == _waypointPath.GetWaypoint(1))
-                _waitDuration = 25f;
+                _waitDuration = 15f;
 
             _waitTimer += Time.deltaTime;
             if(_waitTimer > _waitDuration)
