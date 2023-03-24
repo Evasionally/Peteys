@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,7 +27,6 @@ public class Pause : MonoBehaviour
             }
             else
             {
-                Player.GetComponent<PlayerMovement>().enabled = false;
                 PauseGame();
             }
         }
@@ -38,7 +38,9 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
         Cursor.visible = true;
-
+        Cursor.lockState = CursorLockMode.None;
+        
+        Player.GetComponent<PlayerMovement>().enabled = false;
     }
 
     public void ResumeGame()
@@ -47,6 +49,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         Cursor.visible = false;
+        
         Player.GetComponent<PlayerMovement>().enabled = true;
     }
 
