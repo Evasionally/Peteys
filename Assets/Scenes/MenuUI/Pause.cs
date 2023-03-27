@@ -18,6 +18,9 @@ public class Pause : MonoBehaviour
     {
         PauseMenu.SetActive(false);
         camBrain = MainCam.GetComponent<CinemachineBrain>();
+        
+        // Ensures the camera is in Smart Update mode if the scene was closed with the pause menu open
+        camBrain.m_UpdateMethod = CinemachineBrain.UpdateMethod.SmartUpdate;
     }
 
     // Update is called once per frame
