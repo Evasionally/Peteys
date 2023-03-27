@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
 
+    public bool frictionless;
+
     void Awake() {
         rb = GetComponent<Rigidbody>();
     }
@@ -100,7 +102,10 @@ public class PlayerMovement : MonoBehaviour {
         float xMag = mag.x, yMag = mag.y;
 
         //Counteract sliding and sloppy movement
-        CounterMovement(x, y, mag);
+        if (!frictionless)
+        {
+            CounterMovement(x, y, mag);
+        }
         
         //If holding jump && ready to jump, then jump
         if (readyToJump && jumping) Jump();
