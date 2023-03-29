@@ -10,6 +10,11 @@ public class Stair : MonoBehaviour
     [SerializeField]
     private float _speed;
 
+    [SerializeField]
+    private float waitDuration = 0;
+
+    private float waitTimer;
+
     private int _targetWaypointIndex;
 
     private Transform _previousWaypoint;
@@ -27,14 +32,19 @@ public class Stair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _elapsedTime += Time.deltaTime;
-
-        float elapedPercentage = _elapsedTime / _timeToWaypoint;
-        transform.position = Vector3.Lerp(_previousWaypoint.position, _targetWaypoint.position, elapedPercentage);
-
-        if (elapedPercentage >= 1)
+        waitTimer += Time.deltaTime;
+        if(waitTimer > waitDuration)
         {
-            TargetNextWaypoint();
+
+            _elapsedTime += Time.deltaTime;
+
+            float elapedPercentage = _elapsedTime / _timeToWaypoint;
+            transform.position = Vector3.Lerp(_previousWaypoint.position, _targetWaypoint.position, elapedPercentage);
+
+            if (elapedPercentage >= 1)
+            {
+                TargetNextWaypoint();
+            }
         }
     }
 

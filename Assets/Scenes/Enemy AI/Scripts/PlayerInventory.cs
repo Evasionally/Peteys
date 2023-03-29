@@ -1,13 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int NumberOfDiamonds {get; private set;}
+    public int NumberOfCheese {get; private set;}
+    public int NumberOfPineapples {get; private set;}
+    public int NumberOfPizzas {get; private set;}
 
-    public void DiamondCollected()
+    public UnityEvent<PlayerInventory> OnCollected;
+
+    public void CheeseCollected()
     {
-        NumberOfDiamonds++;
+        NumberOfCheese++;
+        OnCollected.Invoke(this);
     }
+
+    public void PineappleCollected()
+    {
+        NumberOfPineapples++;
+        OnCollected.Invoke(this);
+    }
+    
+    public void PizzaCollected()
+    {
+        NumberOfPizzas++;
+        OnCollected.Invoke(this);
+    }
+
 }

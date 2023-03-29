@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Damageable
+  - Cheese
+  - Pineapple
+  - Pizza
   layers:
   - Default
   - TransparentFX
