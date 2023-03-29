@@ -10,8 +10,23 @@ public class Collectible : MonoBehaviour
 
         if (playerInventory != null)
         {
-            playerInventory.DiamondCollected();
-            gameObject.SetActive(false);
+            if(gameObject.tag == "Cheese")
+            {
+                playerInventory.CheeseCollected();
+                gameObject.SetActive(false);
+            }
+
+            else if(gameObject.tag == "Pineapple")
+            {
+                playerInventory.PineappleCollected();
+                gameObject.SetActive(false);
+            }
+
+            else if(gameObject.tag == "Pizza")
+            {
+                playerInventory.PizzaCollected();
+                gameObject.SetActive(false);
+            }
         }
     }
 }
