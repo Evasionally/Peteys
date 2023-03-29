@@ -17,11 +17,9 @@ public class DamageController : MonoBehaviour
     /// <param name="collision">The Game Object that this collided with.</param>
     public void OnCollisionEnter(Collision collision)
     {
-        GameObject hitObject = collision.gameObject;
+        HealthController hitObject = collision.gameObject.GetComponent<HealthController>();
+        if (hitObject == null) return;
         
-        if (hitObject.CompareTag("Damageable"))
-        {
-            hitObject.GetComponent<HealthController>().Damage(damage);
-        }
+        hitObject.Damage(damage);
     }
 }
