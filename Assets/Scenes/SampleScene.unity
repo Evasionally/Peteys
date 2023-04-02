@@ -866,7 +866,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.035344, z: -2.89113}
+  m_FollowOffset: {x: 0, y: 0.3172455, z: -2.524563}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2233,7 +2233,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.035344, z: -2.89113}
+  m_FollowOffset: {x: 0, y: 0.3172455, z: -2.524563}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -2701,7 +2701,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.035344, z: -2.89113}
+  m_FollowOffset: {x: 0, y: 0.3172455, z: -2.524563}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3597,14 +3597,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784520026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b732521d1be7b724d8fba5b290fc03b4, type: 3}
+  m_Script: {fileID: 11500000, guid: b530c65cfae246740a32d55fa57f021b, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  input: 103
-  bashForce: 3000
-  coolDownTime: 1
-  bashTime: 0.3
-  damage: 15
+  PauseMenu: {fileID: 633531180}
+  Player: {fileID: 1784520026}
+  MainCam: {fileID: 619090656}
 --- !u!1 &1942420988
 GameObject:
   m_ObjectHideFlags: 0
