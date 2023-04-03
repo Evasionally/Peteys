@@ -3300,6 +3300,7 @@ GameObject:
   - component: {fileID: 1784520036}
   - component: {fileID: 1784520037}
   - component: {fileID: 1784520038}
+  - component: {fileID: 1784520039}
   m_Layer: 6
   m_Name: Petey
   m_TagString: Damageable
@@ -3620,6 +3621,23 @@ MonoBehaviour:
   PauseMenu: {fileID: 633531180}
   Player: {fileID: 1784520026}
   MainCam: {fileID: 619090656}
+--- !u!114 &1784520039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784520026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b732521d1be7b724d8fba5b290fc03b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: 113
+  bashForce: 3000
+  coolDownTime: 1
+  bashTime: 0.3
+  damage: 15
 --- !u!1 &1942420988
 GameObject:
   m_ObjectHideFlags: 0
