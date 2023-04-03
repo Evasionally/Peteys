@@ -46,6 +46,11 @@ public class PlayerMovement : MonoBehaviour {
 
     public bool frictionless;
 
+
+    //Edit by Andy - Shelf Tilting script for Petey's collisions on a shelf
+    ShelfTilting shelfTiltingScript;
+    SinkSinking sinkSinkingScript;
+
     void Awake() {
         rb = GetComponent<Rigidbody>();
     }
@@ -54,6 +59,10 @@ public class PlayerMovement : MonoBehaviour {
         playerScale =  transform.localScale;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        //Edit by Andy - find the Shelf Tilting Script
+        shelfTiltingScript = FindObjectOfType<ShelfTilting>();
+        sinkSinkingScript = FindObjectOfType<SinkSinking>();
     }
 
     private void FixedUpdate() {
@@ -262,6 +271,28 @@ public class PlayerMovement : MonoBehaviour {
 
     private void StopGrounded() {
         grounded = false;
+    }
+
+
+    //Edit by Andy - collision things for when Petey steps on a tilting shelf, hot stove, etc
+    private void OnCollisionEnter(Collision collision)
+    {
+        //If Petey steps on the tilting shelf
+        if(collision.gameObject.tag == "tiltingShelf")
+        {
+            Debug.Log("Petey is on the shelf");
+            //Send what letter that button represents to the proper script
+            collision.gameObject.GetComponent<ShelfTilting>().PeteyOnShelf();
+        }        
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        //If Petey steps off the tilting shelf
+        if(collision.gameObject.tag == "tiltingShelf")
+        {
+            //Send what letter that button represents to the proper script
+            collision.gameObject.GetComponent<ShelfTilting>().PeteyOnShelf();
+        }
     }
     
 }
