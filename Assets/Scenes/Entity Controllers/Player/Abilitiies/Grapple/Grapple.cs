@@ -11,6 +11,7 @@ public class Grapple : MonoBehaviour
     public float spring, damper, massScale;
     private float maxDistance = 100f;
     private SpringJoint joint;
+    public bool going;
 
     void Awake() 
     {
@@ -40,7 +41,8 @@ public class Grapple : MonoBehaviour
     void StartGrapple()
     {
         RaycastHit hit;
-        
+        going = true;
+
         if(Physics.Raycast(origin: camera.position, direction: camera.forward, out hit, maxDistance, whatIsGrappleable))
         {
             grapplePoint = hit.point;
@@ -66,6 +68,7 @@ public class Grapple : MonoBehaviour
 
     void StopGrapple()
     {
+        going = false;
         lr.positionCount = 0;
         Destroy(joint);
     }
