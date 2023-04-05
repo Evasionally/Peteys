@@ -8,6 +8,13 @@ TagManager:
   - Cheese
   - Pineapple
   - Pizza
+  - DrawerStairHandle
+  - PeteyButton
+  - tiltingShelf
+  - sinkObject
+  - conveyor
+  - PeteySmasher
+  - WindArea
   layers:
   - Default
   - TransparentFX

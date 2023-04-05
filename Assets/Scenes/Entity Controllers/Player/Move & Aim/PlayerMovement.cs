@@ -281,7 +281,7 @@ public class PlayerMovement : MonoBehaviour {
         if(collision.gameObject.tag == "tiltingShelf")
         {
             Debug.Log("Petey is on the shelf");
-            //Send what letter that button represents to the proper script
+            
             collision.gameObject.GetComponent<ShelfTilting>().PeteyOnShelf();
         }        
     }
