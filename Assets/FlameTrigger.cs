@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class FlameTrigger : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject Flamethrower;
     private Animator anim;
 
-    void Start()
+    void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = Flamethrower.GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        anim.Play("Stop Flamethrower");
+        anim.enabled = true;
+        StartCoroutine(TurnOffFlamethrowers());
     }
+
+    IEnumerator TurnOffFlamethrowers()
+    {
+        yield return new WaitForSeconds(7);
+        
+        GameObject FlameThrower1 = Flamethrower.transform.GetChild(0).transform.GetChild(2).gameObject;
+        GameObject FlameThrower2 = Flamethrower.transform.GetChild(1).transform.GetChild(2).gameObject;
+        GameObject FlameThrower3 = Flamethrower.transform.GetChild(2).transform.GetChild(2).gameObject;
+        
+        FlameThrower1.SetActive(false);
+        FlameThrower2.SetActive(false);
+        FlameThrower3.SetActive(false);
+    }
+
     
 }
