@@ -28,7 +28,7 @@ public class FanRotate : MonoBehaviour
         //transform.Rotate(0, 0, 10 * Time.deltaTime);
 
         //If Petey is ON the shelf - TILT DOWN
-        if(fanActivated == true)
+        if((fanActivated == true && gameObject.tag != "VentFan") || (fanActivated == false && gameObject.tag == "VentFan"))
         {                    
             transform.RotateAround(target.position, transform.forward, degrees * Time.deltaTime);  
         }

@@ -68,6 +68,19 @@ public class Bash : MonoBehaviour
                 collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 collision.gameObject.GetComponent<ButtonMovement>().pushButton();
             }
+            if(collision.gameObject.tag == "FanButton3")
+            {
+                //Get fan
+                GameObject fan3 = GameObject.Find("Vent Fan");
+
+                //Set fan to activated
+                fan3.GetComponent<FanRotate>().FanActivate();
+
+                //Change the button color to green and animate button push
+                collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                collision.gameObject.GetComponent<ButtonMovement>().pushButton();
+
+            }
 
         }
     }

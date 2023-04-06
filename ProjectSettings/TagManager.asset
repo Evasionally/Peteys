@@ -17,6 +17,8 @@ TagManager:
   - WindArea
   - FanButton1
   - FanButton2
+  - FanButton3
+  - VentFan
   layers:
   - Default
   - TransparentFX
