@@ -13,15 +13,6 @@ public class Grapple : MonoBehaviour
     private SpringJoint joint;
     public bool going;
 
-
-
-    //Edit by Andy - initialize the moveDrawer script and find it during Start
-    MoveDrawer moveDrawerScript;
-    void Start() 
-    {   
-        moveDrawerScript = FindObjectOfType<MoveDrawer>();
-    }
-
     void Awake() 
     {
         lr = GetComponent<LineRenderer>();
@@ -71,18 +62,6 @@ public class Grapple : MonoBehaviour
             joint.massScale = massScale;
 
             lr.positionCount = 2;
-
-            //Edit by Andy - if the grapple is hitting a drawer/stair, call the MoveDrawer script
-            if(hit.collider.gameObject.tag == "DrawerStairHandle")
-            {
-                Debug.Log(hit.collider.gameObject.name);
-
-                hit.collider.gameObject.GetComponent<MoveDrawer>().startMovementFunction();
-
-                Debug.Log("function called");
-
-
-            }
 
         }
     }

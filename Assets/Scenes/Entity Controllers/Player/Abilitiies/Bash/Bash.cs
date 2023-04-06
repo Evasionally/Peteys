@@ -42,46 +42,6 @@ public class Bash : MonoBehaviour
             {
                 health.Damage(damage);
             }
-
-            //Edit by Andy - if Petey collides with a Fan activation button
-            if(collision.gameObject.tag == "FanButton1")
-            {
-                //Get fan
-                GameObject fan1 = GameObject.Find("Ceiling Fan 1");
-
-                //Set fan to activated
-                fan1.GetComponent<FanRotate>().FanActivate();
-
-                //Change the button color to green and animate button push
-                collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-                collision.gameObject.GetComponent<ButtonMovement>().pushButton();
-            }
-            if(collision.gameObject.tag == "FanButton2")
-            {
-                //Get fan
-                GameObject fan2 = GameObject.Find("Ceiling Fan 2");
-
-                //Set fan to activated
-                fan2.GetComponent<FanRotate>().FanActivate();
-
-                //Change the button color to green and animate button push
-                collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-                collision.gameObject.GetComponent<ButtonMovement>().pushButton();
-            }
-            if(collision.gameObject.tag == "FanButton3")
-            {
-                //Get fan
-                GameObject fan3 = GameObject.Find("Vent Fan");
-
-                //Set fan to activated
-                fan3.GetComponent<FanRotate>().FanActivate();
-
-                //Change the button color to green and animate button push
-                collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-                collision.gameObject.GetComponent<ButtonMovement>().pushButton();
-
-            }
-
         }
     }
 

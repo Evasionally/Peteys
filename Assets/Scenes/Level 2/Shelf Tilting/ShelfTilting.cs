@@ -15,6 +15,15 @@ public class ShelfTilting : MonoBehaviour
 
     public Transform startPos;
 
+    //Original angle the object is at
+    public float originalAngle;
+
+    //Maximum angle we will allow the object to reach
+    public float maxDownwardAngle; 
+
+    [SerializeField]
+    public GameObject shelf;
+
     private bool peteyOnShelf = false;
 
     // Start is called before the first frame update
