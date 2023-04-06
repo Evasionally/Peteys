@@ -10,7 +10,7 @@ public class FanRotate : MonoBehaviour
     public Transform target;
 
     //Bool to represent if the ceiling fan has been turned on
-    private bool fanActivated = true;
+    private bool fanActivated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,6 @@ public class FanRotate : MonoBehaviour
         //If Petey is ON the shelf - TILT DOWN
         if(fanActivated == true)
         {                    
-            
             transform.RotateAround(target.position, transform.forward, degrees * Time.deltaTime);  
         }
     
