@@ -18,6 +18,8 @@ public class SaveFile
 
         if (freshFile)
             Destroy();
+
+        File.Create(path);
     }
 
     public bool Write(string name, string state)
@@ -44,8 +46,12 @@ public class SaveFile
 
     public string GetValue(string search)
     {
-        string line = data[Search(search)];
+        int index = Search(search);
 
+        if (index == -1)
+            return null;
+
+        string line = data[index];
         return line.Split("=")[1];
     }
     
@@ -57,12 +63,15 @@ public class SaveFile
 
     private int Search(string val)
     {
-        for (int i = 0; i < data.Length; i++)
+        if (data is not null)
         {
-            if (data[i].StartsWith(val))
-                return i;
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i].StartsWith(val))
+                    return i;
+            }
         }
-
+        
         return -1;
     }
 
