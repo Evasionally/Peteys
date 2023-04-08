@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MushroomAnimator : MonoBehaviour
 {
+    public GameObject thisEnemy;
     private Animator mushroomAnimator;
     private bool moving;
     private bool attack;
+    private float health;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,16 @@ public class MushroomAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attack = GameObject.Find("Enemy").GetComponent<MeleeAttackController>().attacking;
-        mushroomAnimator.SetBool("Attacking", attack);
+        if(thisEnemy != null)
+        {
+            health = thisEnemy.GetComponent<HealthController>().currentHealth;
+            attack = thisEnemy.GetComponent<MeleeAttackController>().attacking;
+            mushroomAnimator.SetBool("Attacking", attack);
+
+            if (health <= 0)
+            {
+                mushroomAnimator.SetTrigger("Die");
+            }
+        }
     }
 }
