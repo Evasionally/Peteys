@@ -26,7 +26,7 @@ public class MazeTileMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         elapsedTime += Time.deltaTime;
 
@@ -68,5 +68,21 @@ public class MazeTileMovement : MonoBehaviour
 
         float distanceToWaypoint = Vector3.Distance(previousWaypoint.position, targetWaypoint.position);
         timeToWaypoint = distanceToWaypoint / speed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Damageable")
+        {
+            other.transform.SetParent(transform);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Damageable")
+        {
+            other.transform.SetParent(null);
+        }
     }
 }
