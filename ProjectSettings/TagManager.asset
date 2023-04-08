@@ -21,6 +21,7 @@ TagManager:
   - VentFan
   - Bashable
   - ButtonSticker
+  - Grappleable
   layers:
   - Default
   - TransparentFX

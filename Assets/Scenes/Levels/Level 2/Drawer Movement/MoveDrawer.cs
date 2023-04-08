@@ -22,6 +22,10 @@ public class MoveDrawer : MonoBehaviour
     //Bool to determine if the drawer has been pulled/if its time to start movement
     private bool startMovement = false;
 
+    //Audio sources for drawer movement
+    public AudioSource aSource;
+    public AudioClip aClip;
+
     
 
 
@@ -75,5 +79,7 @@ public class MoveDrawer : MonoBehaviour
         Debug.Log("inside function");
 
         startMovement = true;
+
+        aSource.PlayOneShot(aClip);
     }
 }
