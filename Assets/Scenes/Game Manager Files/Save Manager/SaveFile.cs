@@ -3,14 +3,22 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveFile
 {
     private string path;
     private string[] data;
+
+    private enum WriteType
+    {
+        AppendAllLines,
+        AppendAllText
+    }
 
     public SaveFile(string fileName, bool freshFile = false)
     {
@@ -19,13 +27,14 @@ public class SaveFile
         if (freshFile)
             Destroy();
 
-        File.Create(path);
+        if (!File.Exists(path))
+            File.Create(path);
     }
 
     public bool Write(string name, string state)
     {
         string toWrite = $"{name}={state}";
-
+        
         Load();
         int index = Search(name);
         if (index >= 0)
@@ -33,11 +42,11 @@ public class SaveFile
             Destroy();
 
             data[index] = toWrite;
-            File.AppendAllLines(path, data);
+            WriteInternal(WriteType.AppendAllLines, arr: data);
         }
         else
         {
-            File.AppendAllText(path, toWrite + "\n");
+            WriteInternal(WriteType.AppendAllText, single:toWrite);
         }
 
         Load();
@@ -46,6 +55,7 @@ public class SaveFile
 
     public string GetValue(string search)
     {
+        Load();
         int index = Search(search);
 
         if (index == -1)
@@ -57,8 +67,63 @@ public class SaveFile
     
     private string[] Load()
     {
-        data = File.ReadAllLines(path);
+        while (true)
+        {
+            try
+            {
+                data = File.ReadAllLines(path);
+                break;
+            }
+            catch (Exception e)
+            {
+                Wait();
+            }
+        }
+        
         return data;
+    }
+
+    private void WriteInternal(WriteType type, string single = null, string[] arr = null)
+    {
+        while (true)
+        {
+            try
+            {
+                if (type == WriteType.AppendAllText)
+                    File.AppendAllText(path, single + "\n");
+                else
+                    File.AppendAllLines(path, arr);
+                
+                break;
+            }
+            catch (Exception e)
+            {
+                Wait();
+            }
+        }
+    }
+
+    private async void Wait()
+    {
+        while (IsFileLocked())
+        {
+            await Task.Delay(5); 
+        }
+    }
+
+    private bool IsFileLocked()
+    {
+        try
+        {
+            using FileStream stream = File.Open(path, FileMode.Open);
+            stream.Close();
+        }
+        catch (Exception e)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private int Search(string val)
