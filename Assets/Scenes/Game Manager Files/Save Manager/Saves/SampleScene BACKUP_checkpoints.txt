@@ -1,2 +1,0 @@
-Checkpoint=Inactive
-Checkpoint (1)=Active
