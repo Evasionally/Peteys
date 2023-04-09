@@ -14,14 +14,18 @@ public class ButtonMovement : MonoBehaviour
 
     public float speed;
 
-    private void Start() 
-    {
-        originalPos = transform.localPosition;    
-    }
-
     public AudioSource audioSource;
     public AudioClip audioClip;
 
+    private string backupTag;
+
+    private void Start() 
+    {
+        originalPos = transform.localPosition;  
+        backupTag = gameObject.tag;  
+    }
+
+    
     public void pushButton()
     {
         buttonPushed = true;
@@ -31,12 +35,16 @@ public class ButtonMovement : MonoBehaviour
         {
             audioSource.PlayOneShot(audioClip);
         }
+
+        gameObject.tag = "Untagged";
     }
 
     public void unpushButton()
     {
         buttonPushed = false;
         buttonUnpushed = true;
+
+        gameObject.tag = backupTag;
     }
 
     // Update is called once per frame
