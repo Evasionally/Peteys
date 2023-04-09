@@ -13,7 +13,6 @@ public class ButtonLetter : MonoBehaviour
     //At the start, get the button's name
     public void Start()
     {
-        //buttonLetter = name.Substring(0, name.IndexOf("_"));
         buttonLetter = name;
     }
 
