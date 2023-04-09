@@ -80,6 +80,9 @@ public class MoveDrawer : MonoBehaviour
 
         startMovement = true;
 
-        aSource.PlayOneShot(aClip);
+        if(reachedTarget != true)
+        {
+            aSource.PlayOneShot(aClip);
+        }
     }
 }

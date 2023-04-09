@@ -17,6 +17,11 @@ public class Bash : MonoBehaviour
     private bool onCooldown = false;
     private bool isBashing = false;
 
+
+    //Edit by Andy - audio source for bash break sound effects
+    public AudioSource aSource;
+    public AudioClip aClip;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -85,6 +90,8 @@ public class Bash : MonoBehaviour
             if(collision.gameObject.tag == "Bashable")
             {
                 GameObject bashedObj = collision.gameObject;
+
+                aSource.PlayOneShot(aClip);
 
                 //Instantiate(bashedObj, transform.position, transform.rotation);
                 //bashedObj.GetComponent<Rigidbody>().AddExplosionForce(100, transform.position, 5);
