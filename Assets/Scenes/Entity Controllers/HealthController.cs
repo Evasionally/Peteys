@@ -9,7 +9,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     // Current health of this Game Object
-    private float currentHealth;
+    public float currentHealth;
     
     [Tooltip("The maximum health of this Game Object.")]
     public float maxHealth;

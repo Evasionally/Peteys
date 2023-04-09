@@ -20,7 +20,6 @@ public class EnemyAI : MonoBehaviour
 
     private AttackController attackController;
 
-
     private void Awake()
     {
         player = GameObject.Find("Petey").transform;
