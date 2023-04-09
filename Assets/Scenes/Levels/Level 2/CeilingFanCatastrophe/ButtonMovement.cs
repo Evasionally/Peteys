@@ -19,10 +19,18 @@ public class ButtonMovement : MonoBehaviour
         originalPos = transform.localPosition;    
     }
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     public void pushButton()
     {
         buttonPushed = true;
         buttonUnpushed = false;
+
+        if(gameObject.tag.Contains("Fan"))
+        {
+            audioSource.PlayOneShot(audioClip);
+        }
     }
 
     public void unpushButton()
