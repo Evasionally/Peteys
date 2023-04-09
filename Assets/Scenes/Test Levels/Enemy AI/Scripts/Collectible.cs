@@ -7,12 +7,14 @@ public class Collectible : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
+        HealthController healthController = other.GetComponent<HealthController>();
 
         if (playerInventory != null)
         {
             if(gameObject.tag == "Cheese")
             {
                 playerInventory.CheeseCollected();
+                healthController.Heal(1f);
                 gameObject.SetActive(false);
             }
 
