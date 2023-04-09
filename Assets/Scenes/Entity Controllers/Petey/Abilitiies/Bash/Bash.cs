@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.Events;
 
 public class Bash : MonoBehaviour
 {
@@ -11,16 +12,19 @@ public class Bash : MonoBehaviour
     public float coolDownTime;
     public float bashTime;
     public float damage;
+    public float coolDownCount;
+    public float waitTimer;
     
     private Rigidbody rb;
     private PlayerMovement movementController;
     private bool onCooldown = false;
     private bool isBashing = false;
-
-
+    
     //Edit by Andy - audio source for bash break sound effects
     public AudioSource aSource;
     public AudioClip aClip;
+
+    public UnityEvent<Bash> OnUse;
 
     private void Start()
     {
@@ -105,6 +109,7 @@ public class Bash : MonoBehaviour
     private void Cooldown()
     {
         onCooldown = true;
+        StartCoroutine(CooldownTimer());
         Invoke(nameof(CooldownEnd), coolDownTime);
     }
 
@@ -125,5 +130,27 @@ public class Bash : MonoBehaviour
         movementController.frictionless = false;
         isBashing = false;
         Cooldown();
+    }
+
+    IEnumerator CooldownTimer()
+    {
+        waitTimer = Time.deltaTime;
+        coolDownCount = coolDownTime;
+        BashCountTimer();
+        while (waitTimer<coolDownTime)
+        {
+            yield return new WaitForSeconds(1);
+            if(coolDownCount == 1)
+                break;
+            coolDownCount--;
+            BashCountTimer();
+        }
+        coolDownCount = coolDownTime;
+        BashCountTimer();
+    }
+
+    public void BashCountTimer()
+    {
+        OnUse.Invoke(this);
     }
 }

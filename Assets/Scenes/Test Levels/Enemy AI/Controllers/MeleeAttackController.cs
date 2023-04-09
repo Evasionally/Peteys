@@ -10,6 +10,7 @@ public class MeleeAttackController: AttackController
     
     private float baseSpeed;
     private float baseAcceleration;
+    public bool attacking;
     
     public new void Start()
     {

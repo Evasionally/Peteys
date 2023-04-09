@@ -1,4 +1,4 @@
-﻿
+﻿using UnityEngine.Events;
 using UnityEngine;
 using TMPro;
 
@@ -15,7 +15,7 @@ public class PepperoniProjectile : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
 
-    int bulletsLeft, bulletsShot;
+    public int bulletsLeft, bulletsShot;
 
     //bools
     bool shooting, readyToShoot, reloading;
@@ -31,6 +31,8 @@ public class PepperoniProjectile : MonoBehaviour
     public bool allowInvoke = true;
 
     private AimStateManager aimStateManager;
+
+    public UnityEvent<PepperoniProjectile> OnActivated;
 
     private void Awake()
     {
@@ -121,6 +123,7 @@ public class PepperoniProjectile : MonoBehaviour
 
 
         bulletsLeft--;
+        PepperoniCount();
         bulletsShot++;
 
         //Invoke resetShot function (if not already invoked), with your timeBetweenShooting
@@ -154,5 +157,13 @@ public class PepperoniProjectile : MonoBehaviour
         //Fill magazine
         bulletsLeft = magazineSize;
         reloading = false;
+
+        PepperoniCount();
+    }
+
+    // Used to keep track of HUD pepperoni counter.
+    public void PepperoniCount()
+    {
+        OnActivated.Invoke(this);
     }
 }
