@@ -19,6 +19,10 @@ public class Bash : MonoBehaviour
     private PlayerMovement movementController;
     private bool onCooldown = false;
     private bool isBashing = false;
+    
+    //Edit by Andy - audio source for bash break sound effects
+    public AudioSource aSource;
+    public AudioClip aClip;
 
     public UnityEvent<Bash> OnUse;
 
@@ -84,8 +88,20 @@ public class Bash : MonoBehaviour
                 //Change the button color to green and animate button push
                 collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 collision.gameObject.GetComponent<ButtonMovement>().pushButton();
-
             }
+
+            //Edit by Andy - if Petey collides with a Bashable object like a glass window
+            if(collision.gameObject.tag == "Bashable")
+            {
+                GameObject bashedObj = collision.gameObject;
+
+                aSource.PlayOneShot(aClip);
+
+                //Instantiate(bashedObj, transform.position, transform.rotation);
+                //bashedObj.GetComponent<Rigidbody>().AddExplosionForce(100, transform.position, 5);
+                Destroy(bashedObj);
+            }
+
 
         }
     }

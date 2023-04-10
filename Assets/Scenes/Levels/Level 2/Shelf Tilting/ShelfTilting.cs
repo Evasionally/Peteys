@@ -17,6 +17,9 @@ public class ShelfTilting : MonoBehaviour
 
     private bool peteyOnShelf = false;
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,16 @@ public class ShelfTilting : MonoBehaviour
     public void PeteyOnShelf()
     {
         peteyOnShelf = !peteyOnShelf;
+
+        if(peteyOnShelf == true)
+        {
+            audioSource.loop = true;  
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.loop = false;  
+        }
     }
 
     // Update is called once per frame
@@ -36,17 +49,21 @@ public class ShelfTilting : MonoBehaviour
         //If Petey is ON the shelf - TILT DOWN
         if(peteyOnShelf == true)
         {
+            
+
             Debug.Log("Petey is on the shelf and it should be tilting");
             //Ensure that the shelf is not already at max tilt
             if(Vector3.Distance(transform.position, stopPos.position) > 0.01f)
             {
-                transform.RotateAround(target.position, transform.forward, degrees * Time.deltaTime);  
+                transform.RotateAround(target.position, transform.forward, degrees * Time.deltaTime);
+                
             }
         }
 
         //If Petey is OFF the shelf - TILT UP
         if(peteyOnShelf == false)
         {
+            audioSource.loop = false;
             //Ensure that the shelf is not already at its starting angle
             if(Vector3.Distance(transform.position, startPos.position) > 0.01f)
             {

@@ -283,6 +283,13 @@ public class PlayerMovement : MonoBehaviour {
             Debug.Log("Petey is on the shelf");
             
             collision.gameObject.GetComponent<ShelfTilting>().PeteyOnShelf();
+        }
+
+        //If Petey hops on top of a PETEY button
+        if(collision.gameObject.tag == "ButtonSticker")
+        {
+            //Send what letter that button represents to the proper script
+            collision.gameObject.GetComponent<ButtonLetter>().ButtonClicked();
         }        
     }
     private void OnCollisionExit(Collision collision)

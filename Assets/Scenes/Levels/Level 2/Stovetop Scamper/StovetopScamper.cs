@@ -14,6 +14,11 @@ public class StovetopScamper : MonoBehaviour
     public Material topLeftBurner;
     public Material topRightBurner;
 
+    public GameObject bL;
+    public GameObject bR;
+    public GameObject tL;
+    public GameObject tR;
+
     Color burnerOff = Color.black;
     Color burnerMid = Color.yellow;
     Color burnerOn = Color.red;
@@ -40,6 +45,7 @@ public class StovetopScamper : MonoBehaviour
             if(topLeftBurner.color == Color.black)
             {
                 //Remove damage ontouch for prev burner
+                tL.GetComponent<BurnerDamage>().CoolDown();
             }
             
             if(bottomLeftBurner.color == Color.black)
@@ -47,6 +53,7 @@ public class StovetopScamper : MonoBehaviour
                 setColorToRed(bottomLeftBurner);
 
                 //Begin damage ontouch for this burner
+                bL.GetComponent<BurnerDamage>().HeatUp();
             
             }
             else if(bottomLeftBurner.color == Color.red)
@@ -64,6 +71,7 @@ public class StovetopScamper : MonoBehaviour
             if(bottomLeftBurner.color == Color.black)
             {
                 //Remove damage ontouch for prev burner
+                bL.GetComponent<BurnerDamage>().CoolDown();
             }
             
             if(bottomRightBurner.color == Color.black)
@@ -71,6 +79,7 @@ public class StovetopScamper : MonoBehaviour
                 setColorToRed(bottomRightBurner);
 
                 //Begin damage ontouch for this burner
+                bR.GetComponent<BurnerDamage>().HeatUp();
             
             }
             else if(bottomRightBurner.color == Color.red)
@@ -88,6 +97,7 @@ public class StovetopScamper : MonoBehaviour
             if(bottomRightBurner.color == Color.black)
             {
                 //Remove damage ontouch for prev burner
+                bR.GetComponent<BurnerDamage>().CoolDown();
             }
             
             if(topRightBurner.color == Color.black)
@@ -95,6 +105,7 @@ public class StovetopScamper : MonoBehaviour
                 setColorToRed(topRightBurner);
 
                 //Begin damage ontouch for this burner
+                tR.GetComponent<BurnerDamage>().HeatUp();
             
             }
             else if(topRightBurner.color == Color.red)
@@ -112,6 +123,7 @@ public class StovetopScamper : MonoBehaviour
             if(topRightBurner.color == Color.black)
             {
                 //Remove damage ontouch for prev burner
+                tR.GetComponent<BurnerDamage>().CoolDown();
             }
             
             if(topLeftBurner.color == Color.black)
@@ -119,6 +131,7 @@ public class StovetopScamper : MonoBehaviour
                 setColorToRed(topLeftBurner);
 
                 //Begin damage ontouch for this burner
+                tL.GetComponent<BurnerDamage>().HeatUp();
             
             }
             else if(topLeftBurner.color == Color.red)
