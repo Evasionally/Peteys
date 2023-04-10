@@ -129,7 +129,7 @@ public class Bash : MonoBehaviour
             coolDownCount--;
             BashCountTimer();
         }
-        coolDownCount = coolDownTime;
+        coolDownCount = 0;
         BashCountTimer();
     }
 

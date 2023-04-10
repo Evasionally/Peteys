@@ -19,11 +19,9 @@ public class AbilityCoolDowns : MonoBehaviour
 
     public void UpdateBashCountdownText(Bash bashInformation)
     {
-        componentText.text = bashInformation.coolDownCount.ToString();
-    }
-
-    public void UpdateCheeseText(Grapple cheeseInventory)
-    {
-        //componentText.text = cheeseInventory.NumberOfPizzas.ToString();
+        if(bashInformation.coolDownCount == 0)
+            componentText.text = "Q";
+        else
+            componentText.text = bashInformation.coolDownCount.ToString();
     }
 }
