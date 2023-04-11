@@ -434,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378105404371407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.838224, y: 7.537701, z: -23.425415}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -532,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378105550582027}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.88488436, y: 0.028079987, z: -2.3400002}
+  m_LocalPosition: {x: 0.81505775, y: 0.028079987, z: -2.3399963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -621,16 +621,17 @@ GameObject:
   - component: {fileID: 9127378105799102829}
   - component: {fileID: 9127378105799102830}
   - component: {fileID: 9127378105799102831}
-  - component: {fileID: 9127378105799102828}
   - component: {fileID: 9127378105799102803}
-  - component: {fileID: 9127378105799102802}
+  - component: {fileID: 9127378105799102828}
+  - component: {fileID: 9127378105799102807}
+  - component: {fileID: 9127378105799102804}
   - component: {fileID: 9127378105799102801}
   - component: {fileID: 9127378105799102800}
-  - component: {fileID: 9127378105799102807}
   - component: {fileID: 9127378105799102806}
-  - component: {fileID: 9127378105799102805}
-  - component: {fileID: 9127378105799102804}
+  - component: {fileID: 149894762}
+  - component: {fileID: 149894777}
   - component: {fileID: 509070088}
+  - component: {fileID: 9127378105799102802}
   m_Layer: 6
   m_Name: Petey
   m_TagString: Damageable
@@ -646,9 +647,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378105799102825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.838224, y: 7.537701, z: -23.425415}
-  m_LocalScale: {x: 1, y: 1.2757, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.63785, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9127378105508496608}
   - {fileID: 8728063464082235859}
@@ -719,32 +720,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9127378105799102828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127378105799102825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba950425b044bb241b5094d2ed3271ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 9127378106631216878}
-  rotationSpeed: 5
-  moveSpeed: 4500
-  maxSpeed: 20
-  grounded: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1024
-  counterMovement: 0.175
-  maxSlopeAngle: 35
-  slideForce: 400
-  slideCounterMovement: 3.38
-  jumpForce: 550
-  frictionless: 0
 --- !u!54 &9127378105799102803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -761,7 +736,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &9127378105799102802
+--- !u!114 &9127378105799102828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -770,13 +745,126 @@ MonoBehaviour:
   m_GameObject: {fileID: 9127378105799102825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58573af9255cff542a9f8f39873db94e, type: 3}
+  m_Script: {fileID: 11500000, guid: ba950425b044bb241b5094d2ed3271ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimCamera: {fileID: 9127378105550582025}
-  thirdPersonCam: {fileID: 9127378106613113595}
-  mainCam: {fileID: 9127378106631216851}
+  playerCam: {fileID: 9127378106631216878}
   rotationSpeed: 5
+  moveSpeed: 2200
+  maxSpeed: 9
+  grounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  counterMovement: 0.175
+  maxSlopeAngle: 35
+  slideForce: 300
+  slideCounterMovement: 3.38
+  jumpForce: 380
+  frictionless: 0
+--- !u!114 &9127378105799102807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127378105799102825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582fde3ce2a777c4cb923c292cbaad8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1715582979747976271, guid: 6ecdcb900391852459518f16c19fa0a8, type: 3}
+  shootForce: 30
+  upwardForce: 0
+  timeBetweenShooting: 0.1
+  spread: 3
+  reloadTime: 1.5
+  timeBetweenShots: 0.5
+  magazineSize: 10
+  bulletsPerTap: 1
+  allowButtonHold: 1
+  bulletsLeft: 0
+  bulletsShot: 0
+  fpsCam: {fileID: 9127378106631216851}
+  attackPoint: {fileID: 9127378105799102824}
+  ammunitionDisplay: {fileID: 0}
+  allowInvoke: 1
+  OnActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AbilityCoolDowns, Assembly-CSharp
+        m_MethodName: UpdatePepperoniCountText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AbilityCoolDowns, Assembly-CSharp
+        m_MethodName: UpdatePepperoniCountText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9127378105799102804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127378105799102825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b732521d1be7b724d8fba5b290fc03b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: 113
+  bashForce: 3000
+  coolDownTime: 5
+  bashTime: 0.3
+  damage: 15
+  coolDownCount: 0
+  waitTimer: 0
+  aSource: {fileID: 0}
+  aClip: {fileID: 8300000, guid: 632d89fe8b2c9d4428ab93a192cda2ed, type: 3}
+  OnUse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AbilityCoolDowns, Assembly-CSharp
+        m_MethodName: UpdateBashCountdownText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AbilityCoolDowns, Assembly-CSharp
+        m_MethodName: UpdateBashCountdownText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9127378105799102801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,32 +986,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &9127378105799102807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127378105799102825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582fde3ce2a777c4cb923c292cbaad8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1715582979747976271, guid: 6ecdcb900391852459518f16c19fa0a8, type: 3}
-  shootForce: 30
-  upwardForce: 0
-  timeBetweenShooting: 0.1
-  spread: 3
-  reloadTime: 1.5
-  timeBetweenShots: 0.5
-  magazineSize: 10
-  bulletsPerTap: 1
-  allowButtonHold: 1
-  fpsCam: {fileID: 9127378106631216851}
-  attackPoint: {fileID: 9127378105799102824}
-  ammunitionDisplay: {fileID: 0}
-  allowInvoke: 1
 --- !u!114 &9127378105799102806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,9 +998,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa91b1532b6ae845965ad586cc6a3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
-  startingHealth: 0
---- !u!114 &9127378105799102805
+  currentHealth: 0
+  maxHealth: 8
+  startingHealth: 6
+  OnActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 149894762}
+        m_TargetAssemblyTypeName: HealthAmount, Assembly-CSharp
+        m_MethodName: UpdateHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 149894762}
+        m_TargetAssemblyTypeName: HealthAmount, Assembly-CSharp
+        m_MethodName: StartHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &149894762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -947,13 +1037,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9127378105799102825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b530c65cfae246740a32d55fa57f021b, type: 3}
+  m_Script: {fileID: 11500000, guid: 015dd445ef9da034db000f1657b278a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
-  Player: {fileID: 9127378105799102825}
-  MainCam: {fileID: 9127378106631216851}
---- !u!114 &9127378105799102804
+  health: {fileID: 0}
+--- !u!114 &149894777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -962,14 +1050,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9127378105799102825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b732521d1be7b724d8fba5b290fc03b4, type: 3}
+  m_Script: {fileID: 11500000, guid: fa10f8474eb8dae49bbc2c432c837022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 113
-  bashForce: 3000
-  coolDownTime: 1
-  bashTime: 0.3
-  damage: 15
 --- !u!114 &509070088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,6 +1140,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9127378105799102802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127378105799102825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58573af9255cff542a9f8f39873db94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimCamera: {fileID: 9127378105550582025}
+  thirdPersonCam: {fileID: 9127378106613113595}
+  mainCam: {fileID: 9127378106631216851}
+  rotationSpeed: 5
 --- !u!1 &9127378105939135751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,7 +1316,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: -0
+    Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -1575,11 +1674,11 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 3.69
-    m_Radius: 1.75
+    m_Radius: 1
   - m_Height: 1.85
-    m_Radius: 3.45
+    m_Radius: 2.5
   - m_Height: -0.73
-    m_Radius: 1.3
+    m_Radius: 1
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 9127378104780079784}
@@ -1612,7 +1711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378106631216879}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.88488436, y: 0.028079987, z: -2.3400002}
+  m_LocalPosition: {x: 0.81505775, y: 0.028079987, z: -2.3399963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
