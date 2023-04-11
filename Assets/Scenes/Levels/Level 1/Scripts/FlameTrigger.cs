@@ -9,17 +9,20 @@ public class FlameTrigger : MonoBehaviour
     [SerializeField]
     private GameObject Level2Block;
     private Animator anim;
+    private Animator anim2;
     private Collider coll;
 
     void Awake()
     {
         anim = Flamethrower.GetComponent<Animator>();
+        anim2 = gameObject.GetComponent<Animator>();
         coll = Flamethrower.GetComponent<Collider>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         anim.enabled = true;
+        anim2.Play("Button Press");
         StartCoroutine(TurnOffFlamethrowers());
     }
 
