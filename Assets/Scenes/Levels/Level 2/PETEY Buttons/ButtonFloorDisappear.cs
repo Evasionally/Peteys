@@ -5,9 +5,6 @@ using UnityEngine;
 public class ButtonFloorDisappear : MonoBehaviour
 {
 
-    //Game objects for the goldenPetey and the buttons
-    [SerializeField]
-    private GameObject goldenPetey1;
 
     [SerializeField]
     private GameObject pButton;
@@ -48,7 +45,6 @@ public class ButtonFloorDisappear : MonoBehaviour
         ButtonLetter.SendLetterValue += AddValueAndCheckSequence;
         correctSequence = "PETEY";
         currentSequence = "";
-        goldenPetey1.SetActive(false);
     }
 
     //Use info from SendLetterValue to update the current sequence
@@ -125,7 +121,6 @@ public class ButtonFloorDisappear : MonoBehaviour
 
 
             //Reset the sequence and reveal the treasure !
-            goldenPetey1.SetActive(true);
             currentSequence = "";
             Destroy(gameObject);
 

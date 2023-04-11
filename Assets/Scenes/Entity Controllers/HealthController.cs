@@ -35,7 +35,7 @@ public class HealthController : MonoBehaviour
         currentHealth -= amount;
         UpdateHealth();
 
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
