@@ -15,6 +15,8 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnDestroy()
     {
-        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
+        HealthController health = gameObject.GetComponent<HealthController>();
+        if(health.currentHealth <= 0)
+            SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
     }
 }
