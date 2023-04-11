@@ -6,21 +6,22 @@ using TMPro;
 public class HealthAmount : MonoBehaviour
 {
     [SerializeField]
+    private GameObject player;
+    [SerializeField]
     private GameObject health;
+
     private GameObject componentImage;
-    private float currentHealth = 1;
+    private HealthController playerHealth;
+    private float currentHealth;
     private float newHealth;
 
-    void Start()
-    {
-        //componentImage = GetComponent<TextMeshProUGUI>();
-    }
-
-    public void StartHealth(HealthController healthCount)
+    public void Start()
     {
         float i, healthDifference;
 
-        currentHealth = healthCount.currentHealth;
+        playerHealth = player.GetComponent<HealthController>();
+
+        currentHealth = playerHealth.startingHealth;
         healthDifference = 8 - currentHealth;
 
         if(currentHealth != 8)
@@ -39,7 +40,7 @@ public class HealthAmount : MonoBehaviour
 
         if(newHealth < currentHealth)
         {
-            componentImage = health.transform.GetChild((int)currentHealth - 1).gameObject;
+            componentImage = health.transform.GetChild(8 - (int)currentHealth).gameObject;
             componentImage.SetActive(false);
             currentHealth = newHealth;
         }

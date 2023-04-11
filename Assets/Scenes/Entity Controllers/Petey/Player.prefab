@@ -532,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378105550582027}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.81505775, y: 0.028079987, z: -2.3399963}
+  m_LocalPosition: {x: 0.7140293, y: 0.028079987, z: -2.3399963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1000,25 +1000,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 8
-  startingHealth: 6
+  startingHealth: 8
   OnActivated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 149894762}
         m_TargetAssemblyTypeName: HealthAmount, Assembly-CSharp
         m_MethodName: UpdateHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 149894762}
-        m_TargetAssemblyTypeName: HealthAmount, Assembly-CSharp
-        m_MethodName: StartHealth
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1040,6 +1028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015dd445ef9da034db000f1657b278a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 9127378105799102825}
   health: {fileID: 0}
 --- !u!114 &149894777
 MonoBehaviour:
@@ -1711,7 +1700,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378106631216879}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.81505775, y: 0.028079987, z: -2.3399963}
+  m_LocalPosition: {x: 0.7140293, y: 0.028079987, z: -2.3399963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
