@@ -1,13 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SaveFile
 {
