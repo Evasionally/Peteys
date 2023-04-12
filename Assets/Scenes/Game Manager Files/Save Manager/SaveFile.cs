@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public class SaveFile
 {
@@ -13,9 +14,16 @@ public class SaveFile
         AppendAllText
     }
 
+    private const string DevelopmentPath = "./Assets/Scenes/Game Manager Files/Save Manager";
+
     public SaveFile(string fileName, bool freshFile = false)
     {
-        path = $"./Assets/Scenes/Game Manager Files/Save Manager/Saves/{fileName}.txt";
+        string rootPath = Application.isEditor ? DevelopmentPath : Application.dataPath;
+
+        if (!Directory.Exists($"{rootPath}/Saves"))
+            Directory.CreateDirectory($"{rootPath}/Saves");
+
+        path = $"{rootPath}/Saves/{fileName}.txt";
 
         if (freshFile)
             Destroy();
