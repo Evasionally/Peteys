@@ -1,9 +1,0 @@
-Checkpoint=Inactive
-Checkpoint (2)=Active
-Checkpoint (3)=Waiting
-Checkpoint (4)=Waiting
-Checkpoint (5)=Waiting
-Checkpoint (6)=Waiting
-Checkpoint (7)=Waiting
-Checkpoint (8)=Waiting
-Checkpoint (9)=Waiting
