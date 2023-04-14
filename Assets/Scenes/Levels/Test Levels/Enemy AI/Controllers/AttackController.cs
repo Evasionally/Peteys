@@ -17,4 +17,15 @@ public abstract class AttackController : MonoBehaviour
     }
 
     public abstract void BeginAttack();
+
+    public void Cooldown()
+    {
+        onCooldown = true;
+        Invoke(nameof(EndCooldown), cooldown);
+    }
+
+    public void EndCooldown()
+    {
+        onCooldown = false;
+    }
 }
