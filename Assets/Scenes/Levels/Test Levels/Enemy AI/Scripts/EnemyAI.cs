@@ -15,8 +15,8 @@ public class EnemyAI : MonoBehaviour
     [NonSerialized] public bool walkPointSet = false;
     public float walkPointRange;
 
-    public float sightRange, attackRange;
-    [NonSerialized] public bool playerInSightRange, playerInAttackRange;
+    public float sightRange, attackRange, runRange;
+    [NonSerialized] public bool playerInSightRange, playerInAttackRange, playerInRunRange;
 
     private AttackController attackController;
 
@@ -32,10 +32,12 @@ public class EnemyAI : MonoBehaviour
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInRunRange = runRange > 0 && Physics.CheckSphere(transform.position, runRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) attackController.BeginAttack();
+        else if (playerInRunRange) RunAway();
+        else if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        else if (playerInSightRange && playerInAttackRange) attackController.BeginAttack();
     }
 
     private void Patroling()
@@ -51,6 +53,18 @@ public class EnemyAI : MonoBehaviour
 
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
+    }
+
+    /// <summary>
+    /// Run away little girl, run away!
+    /// </summary>
+    private void RunAway()
+    {
+        Vector3 runDirection = transform.position - player.transform.position;
+        runDirection.y = 0;
+
+        Debug.DrawRay(transform.position, runDirection, Color.blue, 0.1f);
+        agent.SetDestination(runDirection);
     }
 
 
