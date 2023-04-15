@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Handles damage of the pepperoni projectile.
+/// Handles damage of this game object.
 /// </summary>
 public class DamageController : MonoBehaviour
 {

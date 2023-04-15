@@ -22,6 +22,9 @@ TagManager:
   - Bashable
   - ButtonSticker
   - Grappleable
+  - Enemy
+  - Melee Enemy
+  - Ranged Enemy
   layers:
   - Default
   - TransparentFX
