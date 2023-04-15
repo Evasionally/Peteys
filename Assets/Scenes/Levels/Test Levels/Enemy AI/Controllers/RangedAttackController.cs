@@ -11,12 +11,12 @@ public class RangedAttackController: AttackController
     public float spread;
     public float assistance;
 
-    private Vector3 shootPosition;
+    private Transform shotSpawn;
 
     public new void Start()
     {
         aiController = gameObject.GetComponent<EnemyAI>();
-        shootPosition = transform.GetChild(0).position;
+        shotSpawn = transform.GetChild(0);
     }
     
     public override void BeginAttack()
@@ -26,7 +26,7 @@ public class RangedAttackController: AttackController
         
         transform.LookAt(aiController.player);
         
-        GameObject shot = Instantiate(projectile, transform.position, Quaternion.identity);
+        GameObject shot = Instantiate(projectile, shotSpawn.position, Quaternion.identity);
         
         shot.GetComponent<Rigidbody>().AddForce(Aim() * shootForce, ForceMode.Impulse);
 
@@ -35,11 +35,11 @@ public class RangedAttackController: AttackController
 
     private Vector3 Aim()
     {
-        Vector3 trueAim = aiController.player.transform.position - transform.position;
+        Vector3 trueAim = aiController.player.transform.position - shotSpawn.position;
 
         Vector3 aim = trueAim + AimAssist(trueAim) + Variation();
         
-        Debug.DrawRay(transform.position, aim, Color.red, 0.5f);
+        Debug.DrawRay(shotSpawn.position, aim, Color.red, 0.5f);
         return aim;
     }
 
