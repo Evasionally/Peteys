@@ -31,7 +31,7 @@ public class ButtonMovement : MonoBehaviour
         buttonPushed = true;
         buttonUnpushed = false;
 
-        if(gameObject.tag.Contains("Fan"))
+        if(gameObject.tag.Contains("Fan") || gameObject.tag.Contains("Puzzle"))
         {
             audioSource.PlayOneShot(audioClip);
         }

@@ -19,7 +19,7 @@ public class FanRotate : MonoBehaviour
 
     public void FanActivate()
     {
-        fanActivated = true;;
+        fanActivated = true;
     }
 
     // Update is called once per frame

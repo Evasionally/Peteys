@@ -89,6 +89,18 @@ public class Bash : MonoBehaviour
                 collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 collision.gameObject.GetComponent<ButtonMovement>().pushButton();
             }
+            if(collision.gameObject.tag == "GrapplePuzzleButton")
+            {
+                //Get platform
+                GameObject returnPlatform = GameObject.Find("Returning Platform");
+
+                //Set it to activated
+                returnPlatform.GetComponent<PlatformActivate>().PlatformmActivate();
+
+                //Change the button color to green and animate button push
+                collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                collision.gameObject.GetComponent<ButtonMovement>().pushButton();
+            }
 
             //Edit by Andy - if Petey collides with a Bashable object like a glass window
             if(collision.gameObject.tag == "Bashable")
