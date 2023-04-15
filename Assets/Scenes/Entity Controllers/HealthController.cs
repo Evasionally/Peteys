@@ -54,9 +54,9 @@ public class HealthController : MonoBehaviour
 
     public void Respawn()
     {
-        // GameObject enemyClone = PrefabUtility.InstantiatePrefab(enemyRef.gameObject as GameObject) as GameObject;
         GameObject enemyClone = (GameObject)Instantiate(enemyRef);
-        enemyClone.transform.position = transform.position;
+        enemyClone.transform.SetParent(transform.parent);
+        enemyClone.transform.position = transform.parent.position;
         Destroy(gameObject);
     }
 
