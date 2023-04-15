@@ -22,6 +22,7 @@ TagManager:
   - Bashable
   - ButtonSticker
   - Grappleable
+  - GrapplePuzzleButton
   layers:
   - Default
   - TransparentFX

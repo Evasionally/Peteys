@@ -60,7 +60,18 @@ public class PepperoniManager : MonoBehaviour
             //Change the button color to green and animate button push
             collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
             collision.gameObject.GetComponent<ButtonMovement>().pushButton();
+        }
+        if(collision.gameObject.tag == "GrapplePuzzleButton")
+        {
+            //Get platform
+            GameObject returnPlatform = GameObject.Find("Returning Platform");
 
+            //Set it to activated
+            returnPlatform.GetComponent<PlatformActivate>().PlatformmActivate();
+
+            //Change the button color to green and animate button push
+            collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+            collision.gameObject.GetComponent<ButtonMovement>().pushButton();
         }
 
     }
