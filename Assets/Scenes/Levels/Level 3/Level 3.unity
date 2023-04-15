@@ -1352,11 +1352,11 @@ Transform:
   - {fileID: 437048243}
   - {fileID: 199656347}
   - {fileID: 1804387153}
-  - {fileID: 297778536}
   - {fileID: 1236613101}
+  - {fileID: 297778536}
+  - {fileID: 1890829841}
   - {fileID: 779802647}
   - {fileID: 1385460526}
-  - {fileID: 1890829841}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1698,6 +1698,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
@@ -2555,6 +2559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM_00114_Lamp (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -2914,7 +2922,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25976
+  m_Name: pb_Mesh49362
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3159,6 +3167,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
@@ -4362,6 +4374,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
@@ -10081,6 +10097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM_00114_Lamp (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -12753,10 +12773,8 @@ MonoBehaviour:
   m_VersionIndex: 8706
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 12
-    b: 13
-  m_SelectedVertices: 0c0000000d000000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &1645406597
 Transform:
   m_ObjectHideFlags: 0
@@ -14905,6 +14923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM_00114_Lamp (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -15268,6 +15290,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
@@ -16828,6 +16854,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2270393788343939032, guid: 1fa50fa227a054b4f8de1b6b251d35d8, type: 3}
+      propertyPath: whatIsGrappleable.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     - target: {fileID: 2270393788343939041, guid: 1fa50fa227a054b4f8de1b6b251d35d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -164
@@ -16838,7 +16868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2270393788380614531, guid: 1fa50fa227a054b4f8de1b6b251d35d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -163.24219
+      value: -163.19513
       objectReference: {fileID: 0}
     - target: {fileID: 2270393788380614531, guid: 1fa50fa227a054b4f8de1b6b251d35d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16858,7 +16888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2270393789455884391, guid: 1fa50fa227a054b4f8de1b6b251d35d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -163.24219
+      value: -163.19513
       objectReference: {fileID: 0}
     - target: {fileID: 2270393789455884391, guid: 1fa50fa227a054b4f8de1b6b251d35d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16936,6 +16966,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
@@ -17363,6 +17397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM_00114_Lamp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -17440,6 +17478,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
@@ -17682,6 +17724,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
@@ -18279,6 +18325,10 @@ PrefabInstance:
     - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_Name
       value: GM_00114_Lamp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033984219059362, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4725307444631848, guid: b76c8f3c5f98fb44e89bdd8422f16797, type: 3}
       propertyPath: m_RootOrder
