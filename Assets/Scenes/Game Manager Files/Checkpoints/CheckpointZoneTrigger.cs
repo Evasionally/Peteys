@@ -7,6 +7,9 @@ public class CheckpointZoneTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.CompareTag("Player"))
+            return;
+
         Checkpoint checkpoint = gameObject.transform.parent.gameObject.GetComponent<Checkpoint>();
 
         if (checkpoint.status == "Active") return;
