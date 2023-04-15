@@ -23,6 +23,9 @@ TagManager:
   - ButtonSticker
   - Grappleable
   - GrapplePuzzleButton
+  - Enemy
+  - Melee Enemy
+  - Ranged Enemy
   layers:
   - Default
   - TransparentFX

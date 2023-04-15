@@ -41,20 +41,13 @@ public class MeleeAttackController: AttackController
     private void EndAttack()
     {
         attacking = false;
-        onCooldown = true;
 
         aiController.agent.speed = baseSpeed;
         aiController.agent.acceleration = baseAcceleration;
         
-        Invoke(nameof(EndCooldown), cooldown);
+        Cooldown();
     }
-    
 
-    private void EndCooldown()
-    {
-        onCooldown = false;
-    }
-    
 
     private void Attack()
     {

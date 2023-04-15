@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using UnityEditor;
 
 /// <summary>
 /// Script that controls the health of a GameObject, and allows for damage to be applied to it.
@@ -20,8 +21,12 @@ public class HealthController : MonoBehaviour
 
     public UnityEvent<HealthController> OnActivated;
 
+    // [SerializeField]
+    private UnityEngine.Object enemyRef;
+
     private void Start()
     {
+        enemyRef = Resources.Load(gameObject.tag);
         currentHealth = startingHealth != -1 ? startingHealth : maxHealth;
         StartHealth();
     }
@@ -37,8 +42,22 @@ public class HealthController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            if(gameObject.layer == 11)
+            {
+                gameObject.SetActive(false);
+                Invoke("Respawn", 5);
+            }
+            else
+                Destroy(gameObject);
         }
+    }
+
+    public void Respawn()
+    {
+        // GameObject enemyClone = PrefabUtility.InstantiatePrefab(enemyRef.gameObject as GameObject) as GameObject;
+        GameObject enemyClone = (GameObject)Instantiate(enemyRef);
+        enemyClone.transform.position = transform.position;
+        Destroy(gameObject);
     }
 
     /// <summary>
