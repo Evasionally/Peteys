@@ -26,7 +26,7 @@ public class AnimationController : MonoBehaviour
         {
 
             // if running forward, left, or right play forward run
-            if ((Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("d")))
+            if ((Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("d") || Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("d")))
             {
                  ptAnimator.SetBool("IsRunning", true);
             }
@@ -56,7 +56,12 @@ public class AnimationController : MonoBehaviour
             if (Input.GetKeyDown("space"))
             {
                 ptAnimator.SetTrigger("Jump");
+                ptAnimator.SetBool("IsJumping", true);
             } 
+            else if (Input.GetKeyUp("space"))
+            {
+                ptAnimator.SetBool("IsJumping", false);
+            }   
 
             // if (IsSwinging == true)
             // {
