@@ -34154,6 +34154,7 @@ MonoBehaviour:
   walkPointRange: 10
   sightRange: 20
   attackRange: 12
+  runRange: 0
 --- !u!114 &255075790629526689
 MonoBehaviour:
   m_ObjectHideFlags: 0
