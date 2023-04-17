@@ -26,6 +26,7 @@ TagManager:
   - Enemy
   - Melee Enemy
   - Ranged Enemy
+  - Sniper Enemy
   layers:
   - Default
   - TransparentFX
