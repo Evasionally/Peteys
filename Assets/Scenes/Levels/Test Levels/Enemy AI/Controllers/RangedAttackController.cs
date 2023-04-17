@@ -10,11 +10,13 @@ public class RangedAttackController: AttackController
     public float shootForce;
     public float spread;
     public float assistance;
+    public bool attacking;
 
     private Transform shotSpawn;
 
     public new void Start()
     {
+        attacking = false;
         aiController = gameObject.GetComponent<EnemyAI>();
         shotSpawn = transform.GetChild(0);
     }
@@ -22,8 +24,12 @@ public class RangedAttackController: AttackController
     public override void BeginAttack()
     {
         if (onCooldown)
+        {
+            attacking = false;
             return;
+        }
         
+        attacking = true;
         transform.LookAt(aiController.player);
         
         GameObject shot = Instantiate(projectile, shotSpawn.position, Quaternion.identity);
