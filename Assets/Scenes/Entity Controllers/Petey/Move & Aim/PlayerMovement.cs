@@ -147,9 +147,7 @@ public class PlayerMovement : MonoBehaviour {
         if (grounded && crouching) multiplierV = 0f;
 
         //Apply forces to move player
-        Vector3 forward = new Vector3(playerCam.transform.forward.x, 0, playerCam.transform.forward.z);
-        
-        rb.AddForce(forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
+        rb.AddForce(playerCam.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
         rb.AddForce(playerCam.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
     }
 
