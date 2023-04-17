@@ -19,13 +19,33 @@ public class EnemyAI : MonoBehaviour
     [NonSerialized] public bool playerInSightRange, playerInAttackRange, playerInRunRange;
 
     private AttackController attackController;
+    public enum EnemyType
+    {
+        Melee,
+        Ranged,
+        Sniper
+    }
+    public EnemyType enemyType;
 
     private void Awake()
     {
         player = GameObject.Find("Petey").transform;
         agent = GetComponent<NavMeshAgent>();
-        
-        attackController = (AttackController) gameObject.GetComponent<MeleeAttackController>() ?? gameObject.GetComponent<RangedAttackController>();
+
+        switch (enemyType)
+        {
+            case EnemyType.Melee:
+                attackController = gameObject.GetComponent<MeleeAttackController>();
+                break;
+            case EnemyType.Ranged:
+                attackController = gameObject.GetComponent<RangedAttackController>();
+                break;
+            case EnemyType.Sniper:
+                attackController = gameObject.GetComponent<SniperAttackController>();
+                break;
+            default:
+                throw new AttackControllerTypeNotSupportedException();
+        }
     }
 
     private void Update()
@@ -34,10 +54,22 @@ public class EnemyAI : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         playerInRunRange = runRange > 0 && Physics.CheckSphere(transform.position, runRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        else if (playerInRunRange) RunAway();
-        else if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        else if (playerInSightRange && playerInAttackRange) attackController.BeginAttack();
+        switch (enemyType)
+        {
+            case EnemyType.Melee:
+                if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+                else if (playerInSightRange && playerInAttackRange) attackController.BeginAttack();
+                else Patroling();
+                break;
+            case EnemyType.Ranged:
+                if (playerInRunRange) RunAway();
+                else if (playerInSightRange && playerInAttackRange) attackController.BeginAttack();
+                else Patroling();
+                break;
+            case EnemyType.Sniper:
+                if (playerInSightRange && playerInAttackRange) attackController.BeginAttack();
+                break;
+        }
     }
 
     private void Patroling()
@@ -91,4 +123,12 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }  
+}
+
+public class AttackControllerTypeNotSupportedException : Exception
+{
+    public AttackControllerTypeNotSupportedException() {}
+    public AttackControllerTypeNotSupportedException(string message) : base(message) {}
+    
+    public AttackControllerTypeNotSupportedException(string message, Exception innerException) : base(message, innerException) {}
 }
