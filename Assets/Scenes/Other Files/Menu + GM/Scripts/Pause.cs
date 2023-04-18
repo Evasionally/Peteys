@@ -62,6 +62,11 @@ public class Pause : MonoBehaviour
         Player.GetComponent<PlayerMovement>().enabled = true;
     }
 
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void QuitGame()
     {
         SceneManager.LoadScene(0);
