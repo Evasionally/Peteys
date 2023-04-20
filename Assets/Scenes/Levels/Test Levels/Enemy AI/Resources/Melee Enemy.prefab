@@ -10,16 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 255075790629526717}
   - component: {fileID: 255075790629526716}
-  - component: {fileID: 255075790629526719}
   - component: {fileID: 255075790629526718}
-  - component: {fileID: 255075790629526713}
-  - component: {fileID: 255075790629526712}
   - component: {fileID: 255075790629526715}
   - component: {fileID: 255075790629526690}
+  - component: {fileID: 691947297}
+  - component: {fileID: 255075790629526719}
+  - component: {fileID: 255075790629526713}
   - component: {fileID: 255075790629526691}
-  - component: {fileID: 255075790629526689}
-  - component: {fileID: 255075790629526694}
   - component: {fileID: 255075790629526693}
+  - component: {fileID: 255075790629526694}
+  - component: {fileID: 255075790629526689}
   m_Layer: 11
   m_Name: Melee Enemy
   m_TagString: Melee Enemy
@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 255075790629526708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 32, y: 2.3, z: 8}
-  m_LocalScale: {x: 1, y: 1, z: 1.23}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.73}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 255075791145952877}
@@ -33995,41 +33995,11 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 39
+  m_VersionIndex: 72
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!114 &255075790629526719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255075790629526708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Shape:
-    rid: 4611813854599970823
-  m_Size: {x: 4, y: 4, z: 3}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 0
-  m_PivotPosition: {x: 0, y: 0, z: 0}
-  m_UnmodifiedMeshVersion: 18
-  m_ShapeBox:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0.5, z: 0.5}
-  references:
-    version: 2
-    RefIds:
-    - rid: 4611813854599970823
-      type: {class: Sphere, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
-      data:
-        m_Subdivisions: 3
-        m_Smooth: 1
 --- !u!23 &255075790629526718
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34072,28 +34042,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &255075790629526713
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255075790629526708}
-  m_Mesh: {fileID: 0}
---- !u!64 &255075790629526712
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255075790629526708}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!195 &255075790629526715
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -34124,7 +34072,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255075790629526708}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -34132,6 +34080,57 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!135 &691947297
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255075790629526708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &255075790629526719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255075790629526708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 4611813854599970823
+  m_Size: {x: 4, y: 4, z: 3}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 0
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 18
+  m_ShapeBox:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4611813854599970823
+      type: {class: Sphere, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data:
+        m_Subdivisions: 3
+        m_Smooth: 1
+--- !u!33 &255075790629526713
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255075790629526708}
+  m_Mesh: {fileID: 0}
 --- !u!114 &255075790629526691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34152,38 +34151,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPointRange: 10
-  sightRange: 20
-  attackRange: 12
+  sightRange: 10
+  attackRange: 3
   runRange: 0
---- !u!114 &255075790629526689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255075790629526708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3471acd2218dc14f93e018d1dd43a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 10
-  attackTime: 3
-  speedUp: 2
-  attacking: 0
---- !u!114 &255075790629526694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255075790629526708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ffa93295f9cb5a4cb8e07d85541c7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
+  enemyType: 0
 --- !u!114 &255075790629526693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34197,11 +34168,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 6
-  startingHealth: 5
+  maxHealth: 8
+  startingHealth: 8
   OnActivated:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &255075790629526694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255075790629526708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffa93295f9cb5a4cb8e07d85541c7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!114 &255075790629526689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255075790629526708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3471acd2218dc14f93e018d1dd43a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 2
+  attackTime: 1
+  speedUp: 0.25
+  attacking: 0
 --- !u!1001 &255075791145565413
 PrefabInstance:
   m_ObjectHideFlags: 0

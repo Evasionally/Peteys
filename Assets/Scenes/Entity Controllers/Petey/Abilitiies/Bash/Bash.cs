@@ -46,10 +46,13 @@ public class Bash : MonoBehaviour
     {
         if (isBashing)
         {
-            HealthController health = collision.gameObject.GetComponent<HealthController>();
-            if (health != null)
+            if(collision.gameObject.layer == 11)
             {
-                health.Damage(damage);
+                HealthController health = collision.gameObject.GetComponent<HealthController>();
+                if (health != null)
+                {
+                    health.Damage(damage);
+                }
             }
 
             //Edit by Andy - if Petey collides with a Fan activation button

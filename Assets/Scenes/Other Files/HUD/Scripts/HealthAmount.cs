@@ -36,13 +36,21 @@ public class HealthAmount : MonoBehaviour
 
     public void UpdateHealth(HealthController healthCount)
     {
-        newHealth = healthCount.currentHealth;
+        float i, healthDifference;
 
+        newHealth = healthCount.currentHealth;
         if(newHealth < currentHealth)
         {
-            componentImage = health.transform.GetChild(8 - (int)currentHealth).gameObject;
-            componentImage.SetActive(false);
-            currentHealth = newHealth;
+            healthDifference = 8 - newHealth;
+
+            for(i = 0; i < healthDifference; i++)
+            {
+                // componentImage = health.transform.GetChild((int)i).gameObject;
+                // componentImage.SetActive(false);
+                componentImage = health.transform.GetChild((int)i).gameObject;
+                componentImage.SetActive(false);
+            }
+            currentHealth = newHealth;           
         }
 
         else if(newHealth > currentHealth)
