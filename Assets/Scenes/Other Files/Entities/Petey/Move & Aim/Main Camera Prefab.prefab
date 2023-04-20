@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4008127381687246305}
   - component: {fileID: 4008127381687246304}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6166582044160480759}
   - component: {fileID: 6166582044160480754}
   - component: {fileID: 6166582044160480747}
+  - component: {fileID: 1272138861}
   - component: {fileID: 6166582044160480758}
   - component: {fileID: 6166582044160480752}
   - component: {fileID: 6166582044160480746}
@@ -34078,7 +34079,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 90
+  m_VersionIndex: 108
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -34163,6 +34164,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!135 &1272138861
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166582044160480765}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: -0.75, z: 0}
 --- !u!114 &6166582044160480758
 MonoBehaviour:
   m_ObjectHideFlags: 0
