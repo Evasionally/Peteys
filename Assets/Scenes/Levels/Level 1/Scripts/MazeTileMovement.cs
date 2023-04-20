@@ -17,7 +17,7 @@ public class MazeTileMovement : MonoBehaviour
     private float timeToWaypoint;
     private float elapsedTime;
     private float waitTimer;
-    private float waitDuration = 5f;
+    private float waitDuration = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +36,11 @@ public class MazeTileMovement : MonoBehaviour
         if (elapedPercentage >= 1)
         {
             if(previousWaypoint == waypointPath.GetWaypoint(0) && targetWaypoint == waypointPath.GetWaypoint(0))
-                waitDuration = 30f;
+                waitDuration = 40f;
             else if(previousWaypoint == waypointPath.GetWaypoint(2) || previousWaypoint == waypointPath.GetWaypoint(0))
-                waitDuration = 5f;
+                waitDuration = 10f;
             else if(previousWaypoint == waypointPath.GetWaypoint(1))
-                waitDuration = 15f;
+                waitDuration = 20f;
 
             waitTimer += Time.deltaTime;
             if(waitTimer > waitDuration)

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FlameDamage : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if(other.tag == "Damageable")
+        if(other.gameObject.tag == "Damageable")
         {
-            other.GetComponent<Rigidbody>().AddForce (transform.up * 1000);
-            other.GetComponent<Rigidbody>().AddForce (transform.forward * 500);
+            other.gameObject.GetComponent<Rigidbody>().AddForce (transform.up * -2000);
+            other.gameObject.GetComponent<Rigidbody>().AddForce (transform.forward * 2000);
         }
     }
 }
