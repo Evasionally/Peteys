@@ -19,9 +19,7 @@ public class DamageController : MonoBehaviour
     {
         HealthController hitObject = collision.gameObject.GetComponent<HealthController>();
         if (hitObject == null) return;
-        
-        Debug.Log("Damage");
-        
+              
         hitObject.Damage(damage);
     }
 }
