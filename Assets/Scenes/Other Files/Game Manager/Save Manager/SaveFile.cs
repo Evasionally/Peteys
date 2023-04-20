@@ -14,7 +14,7 @@ public class SaveFile
         AppendAllText
     }
 
-    private const string DevelopmentPath = "./Assets/Scenes/Game Manager Files/Save Manager";
+    private const string DevelopmentPath = "./Assets/Scenes/Other Files/Game Manager/Save Manager";
 
     public SaveFile(string fileName, bool freshFile = false)
     {
