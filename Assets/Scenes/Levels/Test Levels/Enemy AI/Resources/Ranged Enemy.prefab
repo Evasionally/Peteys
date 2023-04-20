@@ -93,16 +93,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6166582044160480756}
   - component: {fileID: 6166582044160480757}
-  - component: {fileID: 6166582044160480758}
   - component: {fileID: 6166582044160480759}
-  - component: {fileID: 6166582044160480752}
-  - component: {fileID: 6166582044160480753}
   - component: {fileID: 6166582044160480754}
   - component: {fileID: 6166582044160480747}
+  - component: {fileID: 6166582044160480758}
+  - component: {fileID: 6166582044160480752}
   - component: {fileID: 6166582044160480746}
-  - component: {fileID: 1563679201}
   - component: {fileID: 1563679211}
   - component: {fileID: 4148991093416902301}
+  - component: {fileID: 1563679201}
   m_Layer: 11
   m_Name: Ranged Enemy
   m_TagString: Ranged Enemy
@@ -34079,41 +34078,11 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 93
+  m_VersionIndex: 90
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!114 &6166582044160480758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6166582044160480765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Shape:
-    rid: 4611813854599970823
-  m_Size: {x: 4, y: 4, z: 3}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 0
-  m_PivotPosition: {x: 0, y: 0, z: 0}
-  m_UnmodifiedMeshVersion: 18
-  m_ShapeBox:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0.5, z: 0.5}
-  references:
-    version: 2
-    RefIds:
-    - rid: 4611813854599970823
-      type: {class: Sphere, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
-      data:
-        m_Subdivisions: 3
-        m_Smooth: 1
 --- !u!23 &6166582044160480759
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34156,28 +34125,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &6166582044160480752
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6166582044160480765}
-  m_Mesh: {fileID: 0}
---- !u!64 &6166582044160480753
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6166582044160480765}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!195 &6166582044160480754
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -34216,6 +34163,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6166582044160480758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166582044160480765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    rid: 4611813854599970823
+  m_Size: {x: 4, y: 4, z: 3}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_PivotLocation: 0
+  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_UnmodifiedMeshVersion: 18
+  m_ShapeBox:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4611813854599970823
+      type: {class: Sphere, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data:
+        m_Subdivisions: 3
+        m_Smooth: 1
+--- !u!33 &6166582044160480752
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166582044160480765}
+  m_Mesh: {fileID: 0}
 --- !u!114 &6166582044160480746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34236,28 +34221,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPointRange: 10
-  sightRange: 40
+  sightRange: 30
   attackRange: 30
   runRange: 7
   enemyType: 1
---- !u!114 &1563679201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6166582044160480765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fc41f6691487d24487b821a442e5093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0.5
-  projectile: {fileID: 2735705708982120699, guid: 36f7875bedbf14c428f23164b6e10133, type: 3}
-  shootForce: 3
-  spread: 0.2
-  assistance: 10
-  attacking: 0
 --- !u!114 &1563679211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34289,6 +34256,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &1563679201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166582044160480765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc41f6691487d24487b821a442e5093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  projectile: {fileID: 2735705708982120699, guid: 36f7875bedbf14c428f23164b6e10133, type: 3}
+  shootForce: 3
+  spread: 0.2
+  assistance: 10
+  attacking: 0
 --- !u!1001 &837422862224559375
 PrefabInstance:
   m_ObjectHideFlags: 0

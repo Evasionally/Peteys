@@ -8,7 +8,7 @@ public class EndLevelTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.layer == 6)
             gameManager.CompleteLevel();
     }
 }
