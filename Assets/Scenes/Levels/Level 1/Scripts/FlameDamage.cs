@@ -9,7 +9,7 @@ public class FlameDamage : MonoBehaviour
         if(other.gameObject.tag == "Damageable")
         {
             other.gameObject.GetComponent<Rigidbody>().AddForce (transform.up * -2000);
-            other.gameObject.GetComponent<Rigidbody>().AddForce (transform.forward * 2000);
+            other.gameObject.GetComponent<Rigidbody>().AddForce (transform.forward * 3000);
         }
     }
 }
