@@ -56,6 +56,7 @@ public class HealthController : MonoBehaviour
     {
         GameObject enemyClone = (GameObject)Instantiate(enemyRef);
         enemyClone.transform.SetParent(transform.parent);
+        enemyClone.GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(transform.parent.position);
         enemyClone.transform.position = transform.parent.position;
         Destroy(gameObject);
     }

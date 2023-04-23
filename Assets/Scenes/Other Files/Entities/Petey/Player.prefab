@@ -706,7 +706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378105550582027}
   m_LocalRotation: {x: 0.017734393, y: -0.97719383, z: 0.0906296, w: 0.19121723}
-  m_LocalPosition: {x: -0.10305405, y: 0.66097474, z: 2.1637497}
+  m_LocalPosition: {x: -0.10305214, y: 0.6609762, z: 2.1637497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -925,8 +925,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 9127378106631216878}
   rotationSpeed: 5
-  moveSpeed: 2200
-  maxSpeed: 9
+  moveSpeed: 2000
+  maxSpeed: 8
   grounded: 0
   whatIsGround:
     serializedVersion: 2
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGrappleable:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 16384
   gunTip: {fileID: 9127378105508496608}
   camera: {fileID: 9127378105550582026}
   player: {fileID: 9127378105799102824}
@@ -1875,7 +1875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127378106631216879}
   m_LocalRotation: {x: 0.017734393, y: -0.97719383, z: 0.0906296, w: 0.19121723}
-  m_LocalPosition: {x: -0.10305405, y: 0.66097474, z: 2.1637497}
+  m_LocalPosition: {x: -0.10305214, y: 0.6609762, z: 2.1637497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

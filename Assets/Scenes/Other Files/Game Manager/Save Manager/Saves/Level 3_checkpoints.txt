@@ -1,1 +1,6 @@
 Checkpoint=Active
+Checkpoint (1)=Inactive
+Checkpoint (2)=Waiting
+Checkpoint (3)=Waiting
+Checkpoint (4)=Waiting
+Checkpoint (5)=Waiting
