@@ -169,6 +169,11 @@ public class PlayerMovement : MonoBehaviour {
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
+
+    public void StopMomentum()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+    }
     
     private void ResetJump() {
         readyToJump = true;
