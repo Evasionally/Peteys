@@ -149,19 +149,24 @@ public class PlayerMovement : MonoBehaviour {
         //Apply forces to move player
         Vector3 forward = new Vector3(playerCam.transform.forward.x, 0, playerCam.transform.forward.z);
         Vector3 right = new Vector3(playerCam.transform.right.x, 0, playerCam.transform.right.z);
-        
-        Debug.DrawRay(playerCam.transform.position, forward, Color.blue, Time.deltaTime);
-        Debug.DrawRay(playerCam.transform.position, right, Color.red, Time.deltaTime);
 
-        Vector3 forwardForce = forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV;
-        Vector3 rightForce = right * x * moveSpeed * Time.deltaTime * multiplier;
+        Vector3 forwardForce = ScaleTo(forward, playerCam.forward.magnitude) * y * moveSpeed * Time.deltaTime * multiplier * multiplierV;
+        Vector3 rightForce = ScaleTo(right, playerCam.right.magnitude) * x * moveSpeed * Time.deltaTime * multiplier;
         
-        Debug.DrawRay(gameObject.transform.position, forwardForce, Color.blue, Time.deltaTime);
-        Debug.DrawRay(gameObject.transform.position, rightForce, Color.red, Time.deltaTime);
         rb.AddForce(forwardForce);
         rb.AddForce(rightForce);
-        
-        Debug.DrawRay(gameObject.transform.position, rb.velocity, Color.green, Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Scales a vector by a given value.
+    /// </summary>
+    /// <param name="toExtend">Vector to be scaled.</param>
+    /// <param name="amount">The amount to scale by.</param>
+    /// <returns>A newly scaled vector.</returns>
+    private Vector3 ScaleTo(Vector3 toExtend, float amount)
+    {
+        toExtend.Normalize();
+        return new Vector3(toExtend.x * amount, toExtend.y * amount, toExtend.z * amount);
     }
 
     private void Jump() {
