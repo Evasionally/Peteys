@@ -27,6 +27,7 @@ TagManager:
   - Melee Enemy
   - Ranged Enemy
   - Sniper Enemy
+  - SpeedBoost
   layers:
   - Default
   - TransparentFX
