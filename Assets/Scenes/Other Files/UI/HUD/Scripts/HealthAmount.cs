@@ -43,6 +43,11 @@ public class HealthAmount : MonoBehaviour
         {
             healthDifference = 8 - newHealth;
 
+            if(healthDifference > 8)
+            {
+                healthDifference = 8;
+            }
+
             for(i = 0; i < healthDifference; i++)
             {
                 // componentImage = health.transform.GetChild((int)i).gameObject;

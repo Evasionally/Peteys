@@ -290,7 +290,13 @@ public class PlayerMovement : MonoBehaviour {
         {
             //Send what letter that button represents to the proper script
             collision.gameObject.GetComponent<ButtonLetter>().ButtonClicked();
-        }        
+        }     
+
+        if(collision.gameObject.tag == "SpeedBoost")
+        {
+            moveSpeed = 9000;
+            maxSpeed = 45;
+        }   
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -300,6 +306,12 @@ public class PlayerMovement : MonoBehaviour {
             //Send what letter that button represents to the proper script
             collision.gameObject.GetComponent<ShelfTilting>().PeteyOnShelf();
         }
+
+        if(collision.gameObject.tag == "SpeedBoost")
+        {
+            moveSpeed = 3750;
+            maxSpeed = 16;
+        }   
     }
     
 }
