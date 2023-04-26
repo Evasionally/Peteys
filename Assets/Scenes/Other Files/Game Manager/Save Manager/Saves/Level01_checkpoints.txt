@@ -5,5 +5,5 @@ Checkpoint (4)=Inactive
 Checkpoint (5)=Inactive
 Checkpoint (6)=Inactive
 Checkpoint (7)=Inactive
-Checkpoint (8)=Active
-Checkpoint (9)=Waiting
+Checkpoint (8)=Inactive
+Checkpoint (9)=Active
