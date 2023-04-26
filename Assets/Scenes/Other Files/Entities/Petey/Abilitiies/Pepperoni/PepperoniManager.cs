@@ -73,6 +73,19 @@ public class PepperoniManager : MonoBehaviour
             collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
             collision.gameObject.GetComponent<ButtonMovement>().pushButton();
         }
+        if(collision.gameObject.tag == "FlameButton")
+        {
+
+            //Set flames to deactivated
+            collision.gameObject.GetComponent<FlameTrigger3>().startOff();
+
+            //Change the button color to green and animate button push
+            collision.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+            collision.gameObject.GetComponent<ButtonMovement>().pushButton();
+        }
+
+        
+        
 
     }
 }
