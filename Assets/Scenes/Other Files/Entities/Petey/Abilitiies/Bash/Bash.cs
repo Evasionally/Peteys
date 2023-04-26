@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Events;
@@ -39,6 +40,13 @@ public class Bash : MonoBehaviour
         {
             EnterBash();
             rb.AddForce(gameObject.transform.forward * (bashForce * 1f));
+        }
+
+        // Prevents bashing off ledges to gain huge speed by killing all momentum as soon as
+        // Petey leaves the ground while bashing
+        if (isBashing && !movementController.grounded)
+        {
+            movementController.StopMomentum();
         }
     }
 
@@ -143,6 +151,7 @@ public class Bash : MonoBehaviour
     private void ExitBash()
     {
         movementController.frictionless = false;
+        movementController.StopMomentum();
         isBashing = false;
         Cooldown();
     }

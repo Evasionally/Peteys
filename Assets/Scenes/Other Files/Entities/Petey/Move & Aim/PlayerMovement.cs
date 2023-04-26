@@ -139,16 +139,34 @@ public class PlayerMovement : MonoBehaviour {
         
         // Movement in air
         if (!grounded) {
-            multiplier = 0.5f;
-            multiplierV = 0.5f;
+            multiplier = 0.85f;
+            multiplierV = 0.85f;
         }
         
         // Movement while sliding
         if (grounded && crouching) multiplierV = 0f;
 
         //Apply forces to move player
-        rb.AddForce(playerCam.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
-        rb.AddForce(playerCam.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
+        Vector3 forward = new Vector3(playerCam.transform.forward.x, 0, playerCam.transform.forward.z);
+        Vector3 right = new Vector3(playerCam.transform.right.x, 0, playerCam.transform.right.z);
+
+        Vector3 forwardForce = ScaleTo(forward, playerCam.forward.magnitude) * y * moveSpeed * Time.deltaTime * multiplier * multiplierV;
+        Vector3 rightForce = ScaleTo(right, playerCam.right.magnitude) * x * moveSpeed * Time.deltaTime * multiplier;
+        
+        rb.AddForce(forwardForce);
+        rb.AddForce(rightForce);
+    }
+
+    /// <summary>
+    /// Scales a vector by a given value.
+    /// </summary>
+    /// <param name="toExtend">Vector to be scaled.</param>
+    /// <param name="amount">The amount to scale by.</param>
+    /// <returns>A newly scaled vector.</returns>
+    private Vector3 ScaleTo(Vector3 toExtend, float amount)
+    {
+        toExtend.Normalize();
+        return new Vector3(toExtend.x * amount, toExtend.y * amount, toExtend.z * amount);
     }
 
     private void Jump() {
@@ -168,6 +186,11 @@ public class PlayerMovement : MonoBehaviour {
             
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+    }
+
+    public void StopMomentum()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
     }
     
     private void ResetJump() {
