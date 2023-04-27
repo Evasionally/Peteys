@@ -12,11 +12,27 @@ public class FlameTrigger : MonoBehaviour
     private Animator anim2;
     private Collider coll;
 
+    private SaveFile save;
+    private string state;
+
     void Awake()
     {
         anim = Flamethrower.GetComponent<Animator>();
         anim2 = gameObject.GetComponent<Animator>();
         coll = Flamethrower.GetComponent<Collider>();
+
+        save = new SaveFile($"{gameObject.scene.name}_flamethrowers");
+        state = save.GetValue(Flamethrower.name);
+
+        switch (state)
+        {
+            case null:
+                save.Write(Flamethrower.name, "Active");
+                break;
+            case "Inactive":
+                StartCoroutine(TurnOffFlamethrowers());
+                break;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -40,6 +56,7 @@ public class FlameTrigger : MonoBehaviour
         FlameThrower3.SetActive(false);
         Level2Block.SetActive(false);
 
+        save.Write(Flamethrower.name, "Inactive");
     }
 
     
